@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class LightsOutController : MonoBehaviour 
 {
-    [SerializeField]
-    public SpriteRenderer DarkObject;
+    public DarkBlock DarkObject;
 
     private GameObject darkObjectParent = null;
-    private SpriteRenderer[,] darkGrid;
+    private DarkBlock[,] darkGrid;
 
     private int numberOfColumns;
     private int numberOfRows;
@@ -21,13 +20,13 @@ public class LightsOutController : MonoBehaviour
 
     private void CoverScreen()
     {
-        numberOfColumns = (int)((float)Screen.width / DarkObject.sprite.rect.width) - 3;
-        numberOfRows = (int)((float)Screen.height / DarkObject.sprite.rect.height) - 1;
+        numberOfColumns = (int)((float)Screen.width / DarkObject.DarkBlockSpriteRenderer.sprite.rect.width) - 3;
+        numberOfRows = (int)((float)Screen.height / DarkObject.DarkBlockSpriteRenderer.sprite.rect.height) - 1;
 
-        darkGrid = new SpriteRenderer[numberOfRows, numberOfColumns];
+        darkGrid = new DarkBlock[numberOfRows, numberOfColumns];
 
-        var worldXIncrementRate = DarkObject.bounds.size.x;
-        var worldYIncrementRate = DarkObject.bounds.size.y;
+        var worldXIncrementRate = DarkObject.DarkBlockSpriteRenderer.bounds.size.x;
+        var worldYIncrementRate = DarkObject.DarkBlockSpriteRenderer.bounds.size.y;
 
         var startPosition = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 10f));
         var startPositionX = startPosition.x;
@@ -43,7 +42,6 @@ public class LightsOutController : MonoBehaviour
             {
                 var darkObj = Instantiate(DarkObject, startPosition, Quaternion.identity);
                 darkObj.name = darkObj.name + yIndex.ToString() + "_" + xIndex.ToString();
-                darkObj.gameObject.SetActive(false);
                 darkObj.gameObject.transform.parent = darkObjectParent.transform;
                 darkGrid[yIndex, xIndex] = darkObj;
 
@@ -89,7 +87,7 @@ public class LightsOutController : MonoBehaviour
     {
         for(int index = 0; index < numberOfColumns; index++)
         {
-            darkGrid[row, index].gameObject.SetActive(show);
+            darkGrid[row, index].SetAlpha(1f);
         }
     }
 
@@ -97,7 +95,7 @@ public class LightsOutController : MonoBehaviour
     {
         for(int index = 0; index < numberOfRows; index++)
         {
-            darkGrid[index, column].gameObject.SetActive(show);
+            darkGrid[index, column].SetAlpha(1f);
         }
     }
 }

@@ -51,7 +51,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\IlluminateNearByPlayer.cs" />
+     <Compile Include="Assets\Scripts\DarkBlock.cs" />
      <Compile Include="Assets\Scripts\LightsOutController.cs" />
+     <Compile Include="Assets\SimpleCharacterMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
