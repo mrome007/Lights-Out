@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class LightsOutController : MonoBehaviour 
 {
-    public DarkBlock DarkObject;
+    [SerializeField]
+    private DarkBlock DarkObject;
+
+    [SerializeField]
+    private int LightPercentage = 3;
 
     private GameObject darkObjectParent = null;
     private DarkBlock[,] darkGrid;
@@ -32,7 +36,6 @@ public class LightsOutController : MonoBehaviour
 
         var startPosition = Camera.main.ViewportToWorldPoint(new Vector3(0f, 0f, 10f));
         var startPositionX = startPosition.x;
-        var startPositionY = startPosition.y;
 
         darkObjectParent = new GameObject("DarkObjectsParent");
         darkObjectParent.transform.position = Vector3.zero;
@@ -89,8 +92,8 @@ public class LightsOutController : MonoBehaviour
     {
         for(int index = 0; index < numberOfColumns; index++)
         {
-            var show = Random.Range(0, 9);
-            darkGrid[row, index].SetAlpha(show > 0 ? 1f : 0f);
+            var show = Random.Range(0, 99);
+            darkGrid[row, index].SetAlpha(show > LightPercentage ? 1f : 0f);
         }
     }
 
@@ -98,8 +101,8 @@ public class LightsOutController : MonoBehaviour
     {
         for(int index = 0; index < numberOfRows; index++)
         {
-            var show = Random.Range(0, 9);
-            darkGrid[index, column].SetAlpha(show > 0 ? 1f : 0f);
+            var show = Random.Range(0, 99);
+            darkGrid[index, column].SetAlpha(show > LightPercentage ? 1f : 0f);
         }
     }
 }

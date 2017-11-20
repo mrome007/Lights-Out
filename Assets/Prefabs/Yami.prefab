@@ -941,8 +941,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fb6bdec50a3a408c90b2c8a8ab3240b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lightBallObject: {fileID: 1567097300825570, guid: 5ce98663aacfc4e5f8cac82878f75727,
+  lightBallObject: {fileID: 114079494766331530, guid: 5ce98663aacfc4e5f8cac82878f75727,
     type: 2}
+  fireRate: 0.2
 --- !u!114 &114883703876824130
 MonoBehaviour:
   m_ObjectHideFlags: 1

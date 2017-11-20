@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DarkObject: {fileID: 114185034746260388, guid: c10d2de6d2b9d416bb548482646e2601,
     type: 2}
+  LightPercentage: 8
 --- !u!4 &381127206
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +193,11 @@ Prefab:
     - target: {fileID: 4554108980424858, guid: bc22ca70c8fc04647b543ad14b0945ec, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 212434875659415478, guid: bc22ca70c8fc04647b543ad14b0945ec,
+        type: 2}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc22ca70c8fc04647b543ad14b0945ec, type: 2}
