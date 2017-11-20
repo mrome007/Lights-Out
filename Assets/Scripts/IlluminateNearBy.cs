@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IlluminateNearByPlayer : MonoBehaviour 
+public class IlluminateNearBy : MonoBehaviour 
 {
     [SerializeField]
     private float alpha = 1f;

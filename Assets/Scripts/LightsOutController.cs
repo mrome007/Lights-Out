@@ -12,6 +12,8 @@ public class LightsOutController : MonoBehaviour
     private int numberOfColumns;
     private int numberOfRows;
 
+    private float timeToLightsOut = 0.15f;
+
     private void Start()
     {
         CoverScreen();
@@ -64,18 +66,18 @@ public class LightsOutController : MonoBehaviour
         {
             if(showRow)
             {
-                ShowRow(fromBottom, true);
-                ShowRow(fromTop, true);
+                ShowRow(fromBottom);
+                ShowRow(fromTop);
                 fromBottom++;
                 fromTop--;
             }
 
-            ShowColumn(fromLeft, true);
-            ShowColumn(fromRight, true);
+            ShowColumn(fromLeft);
+            ShowColumn(fromRight);
             fromLeft++;
             fromRight--;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(timeToLightsOut);
 
             showRow = !showRow;
         }
@@ -83,19 +85,21 @@ public class LightsOutController : MonoBehaviour
         Debug.Log("Darkness");
     }
 
-    private void ShowRow(int row, bool show)
+    private void ShowRow(int row)
     {
         for(int index = 0; index < numberOfColumns; index++)
         {
-            darkGrid[row, index].SetAlpha(1f);
+            var show = Random.Range(0, 9);
+            darkGrid[row, index].SetAlpha(show > 0 ? 1f : 0f);
         }
     }
 
-    private void ShowColumn(int column, bool show)
+    private void ShowColumn(int column)
     {
         for(int index = 0; index < numberOfRows; index++)
         {
-            darkGrid[index, column].SetAlpha(1f);
+            var show = Random.Range(0, 9);
+            darkGrid[index, column].SetAlpha(show > 0 ? 1f : 0f);
         }
     }
 }
