@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class LightsOutController : MonoBehaviour 
 {
+    public event EventHandler LightsOut;
+
     [SerializeField]
     private DarkBlock DarkObject;
 
@@ -85,14 +88,18 @@ public class LightsOutController : MonoBehaviour
             showRow = !showRow;
         }
 
-        Debug.Log("Darkness");
+        var handler = LightsOut;
+        if(handler != null)
+        {
+            handler(this, null);
+        }
     }
 
     private void ShowRow(int row)
     {
         for(int index = 0; index < numberOfColumns; index++)
         {
-            var show = Random.Range(0, 99);
+            var show = UnityEngine.Random.Range(0, 100);
             darkGrid[row, index].SetAlpha(show > LightPercentage ? 1f : 0f);
         }
     }
@@ -101,7 +108,7 @@ public class LightsOutController : MonoBehaviour
     {
         for(int index = 0; index < numberOfRows; index++)
         {
-            var show = Random.Range(0, 99);
+            var show = UnityEngine.Random.Range(0, 100);
             darkGrid[index, column].SetAlpha(show > LightPercentage ? 1f : 0f);
         }
     }
