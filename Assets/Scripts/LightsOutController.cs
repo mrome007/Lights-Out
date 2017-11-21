@@ -61,6 +61,35 @@ public class LightsOutController : MonoBehaviour
 
     private IEnumerator StartDarkness()
     {
+        yield return StartCoroutine(Darkness());
+
+        var handler = LightsOut;
+        if(handler != null)
+        {
+            handler(this, null);
+        }
+    }
+
+    private void ShowRow(int row)
+    {
+        for(int index = 0; index < numberOfColumns; index++)
+        {
+            var show = UnityEngine.Random.Range(0, 100);
+            darkGrid[row, index].SetAlpha(show > LightPercentage ? 1f : 0f);
+        }
+    }
+
+    private void ShowColumn(int column)
+    {
+        for(int index = 0; index < numberOfRows; index++)
+        {
+            var show = UnityEngine.Random.Range(0, 100);
+            darkGrid[index, column].SetAlpha(show > LightPercentage ? 1f : 0f);
+        }
+    }
+
+    private IEnumerator Darkness()
+    {
         var fromBottom = 0;
         var fromTop = numberOfRows - 1;
         var fromLeft = 0;
@@ -86,30 +115,6 @@ public class LightsOutController : MonoBehaviour
             yield return new WaitForSeconds(timeToLightsOut);
 
             showRow = !showRow;
-        }
-
-        var handler = LightsOut;
-        if(handler != null)
-        {
-            handler(this, null);
-        }
-    }
-
-    private void ShowRow(int row)
-    {
-        for(int index = 0; index < numberOfColumns; index++)
-        {
-            var show = UnityEngine.Random.Range(0, 100);
-            darkGrid[row, index].SetAlpha(show > LightPercentage ? 1f : 0f);
-        }
-    }
-
-    private void ShowColumn(int column)
-    {
-        for(int index = 0; index < numberOfRows; index++)
-        {
-            var show = UnityEngine.Random.Range(0, 100);
-            darkGrid[index, column].SetAlpha(show > LightPercentage ? 1f : 0f);
         }
     }
 }

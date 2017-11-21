@@ -141,7 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DarkObject: {fileID: 114185034746260388, guid: c10d2de6d2b9d416bb548482646e2601,
     type: 2}
-  LightPercentage: 15
+  LightPercentage: 25
 --- !u!4 &381127206
 Transform:
   m_ObjectHideFlags: 0
