@@ -68,6 +68,22 @@ public class LightsOutController : MonoBehaviour
         {
             handler(this, null);
         }
+
+        InvokeRepeating("ContinueDarkness", 10f, 10f);
+    }
+
+    private void ContinueDarkness()
+    {
+        var decreaseLight = UnityEngine.Random.Range(0, 100);
+        if(decreaseLight >= 60)
+        {
+            LightPercentage--;
+            if(LightPercentage < 3)
+            {
+                LightPercentage = 3;
+            }
+        }
+        StartCoroutine(Darkness());
     }
 
     private void ShowRow(int row)

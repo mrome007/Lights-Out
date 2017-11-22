@@ -56,10 +56,11 @@
      <Compile Include="Assets\Scripts\EnemyWaveController.cs" />
      <Compile Include="Assets\Scripts\FireLightBall.cs" />
      <Compile Include="Assets\Scripts\IlluminateNearBy.cs" />
+     <Compile Include="Assets\Scripts\LightBallDissolve.cs" />
      <Compile Include="Assets\Scripts\LightsOutController.cs" />
      <Compile Include="Assets\Scripts\LightsOutEnemy.cs" />
      <Compile Include="Assets\Scripts\SimpleCharacterMovement.cs" />
-     <Compile Include="Assets\Scripts\YamiFireProjectile.cs" />
+     <Compile Include="Assets\Scripts\YamiSpawnLightBall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

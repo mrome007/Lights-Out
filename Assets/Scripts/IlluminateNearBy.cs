@@ -5,6 +5,9 @@ using UnityEngine;
 public class IlluminateNearBy : MonoBehaviour 
 {
     [SerializeField]
+    private bool stationary = false;
+
+    [SerializeField]
     private float alpha = 1f;
     
     private DarkBlock previousDarkBlock = null;
@@ -22,7 +25,7 @@ public class IlluminateNearBy : MonoBehaviour
                 TurnedDark = darkBlock.IsDark;
             }
 
-            if(previousDarkBlock == null || previousDarkBlock.name != hit.collider.name)
+            if(previousDarkBlock == null || previousDarkBlock.name != hit.collider.name || stationary)
             {
                 TurnedDark = darkBlock.IsDark;
 

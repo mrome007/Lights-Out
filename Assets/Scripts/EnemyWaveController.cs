@@ -24,6 +24,8 @@ public class EnemyWaveController : MonoBehaviour
     private Transform bottomSpawnPoint;
 
     [SerializeField]
+    private float enemySpeed;
+    [SerializeField]
     private int baseNumberOfEnemies;
     [SerializeField]
     private int incrRateOfEnemies;
@@ -60,7 +62,11 @@ public class EnemyWaveController : MonoBehaviour
                 StartCoroutine(SpawnEnemy());
             }
             yield return new WaitForSeconds(timeBetweenWaves);
-            baseNumberOfEnemies += incrRateOfEnemies;
+            var increaseEnemies = UnityEngine.Random.Range(0, 100);
+            if(increaseEnemies >= 75)
+            {
+                baseNumberOfEnemies += incrRateOfEnemies;
+            }
             waveNumber++;
         }
     }
@@ -73,7 +79,7 @@ public class EnemyWaveController : MonoBehaviour
         var direction = playerTransform.position - enemyPosition;
 
         var enemy = Instantiate(enemyType, enemyPosition, Quaternion.identity);
-        enemy.Initialize(direction, 4f);
+        enemy.Initialize(direction, enemySpeed);
     }
 
     private Vector3 PickSpawnPoint()

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class YamiFireProjectile : MonoBehaviour 
+public class YamiSpawnLightBall : MonoBehaviour 
 {
+    public static int NumberOfLightBalls = 10;
+    
     [SerializeField]
-    private FireLightBall lightBallObject;
+    private GameObject lightBallObject;
 
     [SerializeField]
     private float fireRate = 0.3f;
@@ -40,8 +42,12 @@ public class YamiFireProjectile : MonoBehaviour
             if(fireTimer <= 0)
             {
                 fireTimer = fireRate;
-                var lightBall = Instantiate(lightBallObject, transform.position, Quaternion.identity);
-                lightBall.direction = projectileDirection;
+
+                if(NumberOfLightBalls > 0)
+                {
+                    NumberOfLightBalls--;
+                    Instantiate(lightBallObject, transform.position, Quaternion.identity);
+                }
             }
         }
 

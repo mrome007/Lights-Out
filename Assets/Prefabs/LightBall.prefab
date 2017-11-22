@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 212215342450742142}
   - component: {fileID: 58003608389732820}
   - component: {fileID: 50668821882961384}
-  - component: {fileID: 114079494766331530}
+  - component: {fileID: 114870561893454612}
   m_Layer: 0
   m_Name: LightBall
   m_TagString: Untagged
@@ -539,6 +539,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.25
 --- !u!114 &114079348896804178
 MonoBehaviour:
@@ -551,19 +552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.25
---- !u!114 &114079494766331530
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1567097300825570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43cf8c6fb960a408cac2f992c564f6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  direction: {x: 0, y: 0}
 --- !u!114 &114258537297141002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -575,6 +565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0
 --- !u!114 &114301767503882222
 MonoBehaviour:
@@ -587,6 +578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0
 --- !u!114 &114319056835445204
 MonoBehaviour:
@@ -599,6 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.8
 --- !u!114 &114346499415239710
 MonoBehaviour:
@@ -611,6 +604,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.1
 --- !u!114 &114352059543772564
 MonoBehaviour:
@@ -623,6 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.25
 --- !u!114 &114407653941857694
 MonoBehaviour:
@@ -635,6 +630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.8
 --- !u!114 &114437480368594020
 MonoBehaviour:
@@ -647,6 +643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0
 --- !u!114 &114452677191850406
 MonoBehaviour:
@@ -659,6 +656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.1
 --- !u!114 &114506042814277290
 MonoBehaviour:
@@ -671,6 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.1
 --- !u!114 &114513700191504908
 MonoBehaviour:
@@ -683,6 +682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.1
 --- !u!114 &114694198934474748
 MonoBehaviour:
@@ -695,6 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.25
 --- !u!114 &114757807589595782
 MonoBehaviour:
@@ -707,6 +708,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.8
 --- !u!114 &114767141221209800
 MonoBehaviour:
@@ -719,7 +721,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a834791355e824de0b3e3f0e9032af65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stationary: 1
   alpha: 0.8
+--- !u!114 &114870561893454612
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1567097300825570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d5a782673684624a13fb4d3f5a8556, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToDissolveLightBall: 8
 --- !u!212 &212215342450742142
 SpriteRenderer:
   m_ObjectHideFlags: 1
