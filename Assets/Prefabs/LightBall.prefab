@@ -734,7 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0d5a782673684624a13fb4d3f5a8556, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDissolveLightBall: 8
+  timeToDissolveLightBall: 10
 --- !u!212 &212215342450742142
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class YamiSpawnLightBall : MonoBehaviour 
 {
-    public static int NumberOfLightBalls = 10;
+    public static int NumberOfLightBalls = 12;
     
     [SerializeField]
     private GameObject lightBallObject;
