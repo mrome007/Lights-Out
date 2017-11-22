@@ -56,7 +56,6 @@ public class EnemyWaveController : MonoBehaviour
     {
         while(true)
         {
-            Debug.Log("Wave Number: " + waveNumber);
             for(int index = 0; index < baseNumberOfEnemies; index++)
             {
                 StartCoroutine(SpawnEnemy());
@@ -90,19 +89,19 @@ public class EnemyWaveController : MonoBehaviour
         {
             case 0:
                 spawnPoint = leftSpawnPoint.position;
-                spawnPoint.y = UnityEngine.Random.Range(-8f, 8f);
+                spawnPoint.y = UnityEngine.Random.Range(-5f, 5f);
                 break;
             case 1:
                 spawnPoint = rightSpawnPoint.position;
-                spawnPoint.y = UnityEngine.Random.Range(-8f, 8f);
+                spawnPoint.y = UnityEngine.Random.Range(-5f, 5f);
                 break;
             case 2:
                 spawnPoint = topSpawnPoint.position;
-                spawnPoint.x = UnityEngine.Random.Range(-15f, 15f);
+                spawnPoint.x = UnityEngine.Random.Range(-10f, 10f);
                 break;
             case 3:
                 spawnPoint = bottomSpawnPoint.position;
-                spawnPoint.x = UnityEngine.Random.Range(-15f, 15f);
+                spawnPoint.x = UnityEngine.Random.Range(-10f, 10f);
                 break;
             default:
                 spawnPoint = topSpawnPoint.position;
