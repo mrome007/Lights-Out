@@ -21,7 +21,7 @@ public class LightsOutController : MonoBehaviour
 
     private float timeToLightsOut = 0.15f;
 
-    private void Start()
+    public void BeginLightsOut()
     {
         CoverScreen();
         StartCoroutine(StartDarkness());
@@ -31,9 +31,7 @@ public class LightsOutController : MonoBehaviour
     {
         numberOfColumns = 51;
         numberOfRows = 32;
-        Debug.Log(numberOfColumns + " " + numberOfRows);
-        Debug.Log(Screen.width.ToString() + "x" + Screen.height.ToString());
-        Debug.Log(Camera.main.pixelWidth.ToString() + "x" + Camera.main.pixelHeight.ToString());
+
         darkGrid = new DarkBlock[numberOfRows, numberOfColumns];
 
         var worldXIncrementRate = DarkObject.DarkBlockSpriteRenderer.bounds.size.x;
