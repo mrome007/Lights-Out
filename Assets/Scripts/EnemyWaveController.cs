@@ -4,53 +4,127 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Enemy wave controller.
+/// </summary>
 public class EnemyWaveController : MonoBehaviour 
 {
+    #region Inspector elements
+
+    /// <summary>
+    /// The lights out controller.
+    /// </summary>
     [SerializeField]
     private LightsOutController lightsOutController;
 
+    /// <summary>
+    /// The player transform.
+    /// </summary>
     [SerializeField]
     private Transform playerTransform;
 
+    /// <summary>
+    /// List of enemy types.
+    /// </summary>
     [SerializeField]
     private List<LightsOutEnemy> lightsOutEnemies;
 
+    /// <summary>
+    /// The left spawn point.
+    /// </summary>
     [SerializeField]
     private Transform leftSpawnPoint;
+
+    /// <summary>
+    /// The right spawn point.
+    /// </summary>
     [SerializeField]
     private Transform rightSpawnPoint;
+
+    /// <summary>
+    /// The top spawn point.
+    /// </summary>
     [SerializeField]
     private Transform topSpawnPoint;
+
+    /// <summary>
+    /// The bottom spawn point.
+    /// </summary>
     [SerializeField]
     private Transform bottomSpawnPoint;
 
+    /// <summary>
+    /// The enemy speed.
+    /// </summary>
     [SerializeField]
     private float enemySpeed;
+
+    /// <summary>
+    /// The base number of enemies.
+    /// </summary>
     [SerializeField]
     private int baseNumberOfEnemies;
+
+    /// <summary>
+    /// The increment rate of enemies.
+    /// </summary>
     [SerializeField]
     private int incrRateOfEnemies;
 
+    #endregion
+
+    #region UI elements
+
+    /// <summary>
+    /// The wave text container.
+    /// </summary>
     [SerializeField]
     private GameObject waveTextContainer;
+
+    /// <summary>
+    /// The wave number text.
+    /// </summary>
     [SerializeField]
     private Text waveNumberText;
 
+    #endregion
+
+    /// <summary>
+    /// The wave number.
+    /// </summary>
     public static int WaveNumber = 1;
 
+    /// <summary>
+    /// The time to spawn enemy.
+    /// </summary>
     private float timeToSpawnEnemy = 1.5f;
+
+    /// <summary>
+    /// The time between waves.
+    /// </summary>
     private float timeBetweenWaves = 6.0f;
 
+    /// <summary>
+    /// Unity Awake method.
+    /// </summary>
     private void Awake()
     {
         lightsOutController.LightsOut += LightsAreOut;
     }
 
+    /// <summary>
+    /// Unity OnDestroy method.
+    /// </summary>
     private void OnDestroy()
     {
         lightsOutController.LightsOut -= LightsAreOut;
     }
 
+    /// <summary>
+    /// Lights out handler
+    /// </summary>
+    /// <param name="sender">Sender.</param>
+    /// <param name="e">E.</param>
     private void LightsAreOut(object sender, EventArgs e)
     {
         lightsOutController.LightsOut -= LightsAreOut;
@@ -59,6 +133,10 @@ public class EnemyWaveController : MonoBehaviour
         UpdateWaveText();
     }
 
+    /// <summary>
+    /// Enemy wave coroutine.
+    /// </summary>
+    /// <returns>The wave.</returns>
     private IEnumerator EnemyWave()
     {
         while(true)
@@ -78,6 +156,10 @@ public class EnemyWaveController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Spawns the enemy.
+    /// </summary>
+    /// <returns>The enemy.</returns>
     private IEnumerator SpawnEnemy()
     {
         yield return new WaitForSeconds(UnityEngine.Random.Range(0f, timeToSpawnEnemy));
@@ -89,6 +171,10 @@ public class EnemyWaveController : MonoBehaviour
         enemy.Initialize(direction, enemySpeed);
     }
 
+    /// <summary>
+    /// Picks the spawn point.
+    /// </summary>
+    /// <returns>The spawn point.</returns>
     private Vector3 PickSpawnPoint()
     {
         var spawnPoint = Vector3.zero;
@@ -119,11 +205,18 @@ public class EnemyWaveController : MonoBehaviour
         return spawnPoint;
     }
 
+    /// <summary>
+    /// Picks the enemy.
+    /// </summary>
+    /// <returns>The enemy.</returns>
     private LightsOutEnemy PickEnemy()
     {
         return lightsOutEnemies[UnityEngine.Random.Range(0, lightsOutEnemies.Count)];
     }
 
+    /// <summary>
+    /// Updates the wave text.
+    /// </summary>
     private void UpdateWaveText()
     {
         waveTextContainer.SetActive(true);

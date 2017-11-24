@@ -2,17 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Illuminate near by.
+/// </summary>
 public class IlluminateNearBy : MonoBehaviour 
 {
+    #region Inspector elements
+
+    /// <summary>
+    /// flag whether object is stationary.
+    /// </summary>
     [SerializeField]
     private bool stationary = false;
 
+    /// <summary>
+    /// The alpha.
+    /// </summary>
     [SerializeField]
     private float alpha = 1f;
-    
+
+    #endregion
+
+    /// <summary>
+    /// The previous dark block.
+    /// </summary>
     private DarkBlock previousDarkBlock = null;
+
+    /// <summary>
+    /// TurnedDark flag.
+    /// </summary>
     private bool TurnedDark = false;
 
+    /// <summary>
+    /// Unity FixedUpdate method.
+    /// </summary>
     private void FixedUpdate()
     {
         RaycastHit hit;

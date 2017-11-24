@@ -3,30 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Lights out controller.
+/// </summary>
 public class LightsOutController : MonoBehaviour 
 {
+    #region event
+
+    /// <summary>
+    /// Occurs when lights out.
+    /// </summary>
     public event EventHandler LightsOut;
 
+    #endregion
+
+    #region Inspector elements
+
+    /// <summary>
+    /// The dark object.
+    /// </summary>
     [SerializeField]
     private DarkBlock DarkObject;
 
+    /// <summary>
+    /// The light percentage.
+    /// </summary>
     [SerializeField]
     private int LightPercentage = 3;
 
+    #endregion
+
+    #region Private fields
+
+    /// <summary>
+    /// The dark object parent.
+    /// </summary>
     private GameObject darkObjectParent = null;
+
+    /// <summary>
+    /// The dark grid.
+    /// </summary>
     private DarkBlock[,] darkGrid;
 
+    /// <summary>
+    /// The number of columns.
+    /// </summary>
     private int numberOfColumns;
+
+    /// <summary>
+    /// The number of rows.
+    /// </summary>
     private int numberOfRows;
 
+    /// <summary>
+    /// The time to lights out.
+    /// </summary>
     private float timeToLightsOut = 0.15f;
 
+    #endregion
+
+    /// <summary>
+    /// Begins the lights out.
+    /// </summary>
     public void BeginLightsOut()
     {
         CoverScreen();
         StartCoroutine(StartDarkness());
     }
 
+    /// <summary>
+    /// Covers the screen.
+    /// </summary>
     private void CoverScreen()
     {
         numberOfColumns = 51;
@@ -59,6 +106,10 @@ public class LightsOutController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Starts the darkness.
+    /// </summary>
+    /// <returns>The darkness.</returns>
     private IEnumerator StartDarkness()
     {
         yield return StartCoroutine(Darkness());
@@ -72,6 +123,9 @@ public class LightsOutController : MonoBehaviour
         InvokeRepeating("ContinueDarkness", 10f, 10f);
     }
 
+    /// <summary>
+    /// Continues the darkness.
+    /// </summary>
     private void ContinueDarkness()
     {
         var decreaseLight = UnityEngine.Random.Range(0, 100);
@@ -86,6 +140,10 @@ public class LightsOutController : MonoBehaviour
         StartCoroutine(Darkness());
     }
 
+    /// <summary>
+    /// Shows the row.
+    /// </summary>
+    /// <param name="row">Row.</param>
     private void ShowRow(int row)
     {
         for(int index = 0; index < numberOfColumns; index++)
@@ -95,6 +153,10 @@ public class LightsOutController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Shows the column.
+    /// </summary>
+    /// <param name="column">Column.</param>
     private void ShowColumn(int column)
     {
         for(int index = 0; index < numberOfRows; index++)
@@ -104,6 +166,9 @@ public class LightsOutController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Darkness this instance.
+    /// </summary>
     private IEnumerator Darkness()
     {
         var fromBottom = 0;

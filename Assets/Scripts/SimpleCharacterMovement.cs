@@ -2,13 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Simple character movement.
+/// </summary>
 public class SimpleCharacterMovement : MonoBehaviour 
 {
+    /// <summary>
+    /// The yami player.
+    /// </summary>
     private YamiPlayer yamiPlayer;
+
+    /// <summary>
+    /// The sprite renderer.
+    /// </summary>
     private SpriteRenderer spriteRenderer;
-    private float Speed = 5f;
+
+    /// <summary>
+    /// The speed.
+    /// </summary>
+    private float speed = 5f;
+
+    /// <summary>
+    /// The movement vector.
+    /// </summary>
     private Vector3 movementVector;
 
+    /// <summary>
+    /// Unity Awake method.
+    /// </summary>
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -24,11 +45,17 @@ public class SimpleCharacterMovement : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Unity start method.
+    /// </summary>
     private void Start()
     {
         movementVector = Vector3.zero;
     }
 	
+    /// <summary>
+    /// Unity Update method.
+    /// </summary>
 	private void Update() 
     {
         if(yamiPlayer.YamiPlayerMode == YamiPlayer.Mode.NOPLAY)
@@ -47,6 +74,6 @@ public class SimpleCharacterMovement : MonoBehaviour
             spriteRenderer.flipX = h < 0f;
         }
 
-        transform.Translate(movementVector * Speed * Time.deltaTime);
+        transform.Translate(movementVector * speed * Time.deltaTime);
 	}
 }
