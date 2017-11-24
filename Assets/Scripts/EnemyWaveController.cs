@@ -54,7 +54,7 @@ public class EnemyWaveController : MonoBehaviour
     private void LightsAreOut(object sender, EventArgs e)
     {
         lightsOutController.LightsOut -= LightsAreOut;
-
+        WaveNumber = 1;
         StartCoroutine(EnemyWave());
         UpdateWaveText();
     }
