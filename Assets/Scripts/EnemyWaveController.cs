@@ -69,7 +69,7 @@ public class EnemyWaveController : MonoBehaviour
             }
             yield return new WaitForSeconds(timeBetweenWaves);
             var increaseEnemies = UnityEngine.Random.Range(0, 100);
-            if(increaseEnemies >= 55)
+            if(increaseEnemies >= 50)
             {
                 baseNumberOfEnemies += incrRateOfEnemies;
             }

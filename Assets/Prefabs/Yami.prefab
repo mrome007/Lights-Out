@@ -1052,6 +1052,9 @@ MonoBehaviour:
   lightBallObject: {fileID: 1567097300825570, guid: 5ce98663aacfc4e5f8cac82878f75727,
     type: 2}
   fireRate: 0.2
+  lightBallTextContainer: {fileID: 0}
+  lightBallText: {fileID: 0}
+  lightsOutController: {fileID: 0}
 --- !u!114 &114883703876824130
 MonoBehaviour:
   m_ObjectHideFlags: 1
