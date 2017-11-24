@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyWaveController : MonoBehaviour 
 {
@@ -30,10 +31,15 @@ public class EnemyWaveController : MonoBehaviour
     [SerializeField]
     private int incrRateOfEnemies;
 
+    [SerializeField]
+    private GameObject waveTextContainer;
+    [SerializeField]
+    private Text waveNumberText;
+
     private int waveNumber = 1;
 
-    private float timeToSpawnEnemy = 3.0f;
-    private float timeBetweenWaves = 5.0f;
+    private float timeToSpawnEnemy = 1.5f;
+    private float timeBetweenWaves = 6.0f;
 
     private void Awake()
     {
@@ -50,6 +56,7 @@ public class EnemyWaveController : MonoBehaviour
         lightsOutController.LightsOut -= LightsAreOut;
 
         StartCoroutine(EnemyWave());
+        UpdateWaveText();
     }
 
     private IEnumerator EnemyWave()
@@ -62,11 +69,12 @@ public class EnemyWaveController : MonoBehaviour
             }
             yield return new WaitForSeconds(timeBetweenWaves);
             var increaseEnemies = UnityEngine.Random.Range(0, 100);
-            if(increaseEnemies >= 75)
+            if(increaseEnemies >= 55)
             {
                 baseNumberOfEnemies += incrRateOfEnemies;
             }
             waveNumber++;
+            UpdateWaveText();
         }
     }
 
@@ -114,5 +122,11 @@ public class EnemyWaveController : MonoBehaviour
     private LightsOutEnemy PickEnemy()
     {
         return lightsOutEnemies[UnityEngine.Random.Range(0, lightsOutEnemies.Count)];
+    }
+
+    private void UpdateWaveText()
+    {
+        waveTextContainer.SetActive(true);
+        waveNumberText.text = waveNumber.ToString();
     }
 }
