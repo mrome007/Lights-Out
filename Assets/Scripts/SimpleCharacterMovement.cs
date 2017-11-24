@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimpleCharacterMovement : MonoBehaviour 
 {
+    private YamiPlayer yamiPlayer;
     private SpriteRenderer spriteRenderer;
     private float Speed = 5f;
     private Vector3 movementVector;
@@ -15,6 +16,12 @@ public class SimpleCharacterMovement : MonoBehaviour
         {
             Debug.LogError("No Sprite Renderer");
         }
+
+        yamiPlayer = GetComponent<YamiPlayer>();
+        if(yamiPlayer == null)
+        {
+            Debug.LogError("No Player");
+        }
     }
 
     private void Start()
@@ -24,6 +31,11 @@ public class SimpleCharacterMovement : MonoBehaviour
 	
 	private void Update() 
     {
+        if(yamiPlayer.YamiPlayerMode == YamiPlayer.Mode.NOPLAY)
+        {
+            return;
+        }
+
         var h = Input.GetAxis("Horizontal");
         var v = Input.GetAxis("Vertical");
 

@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class YamiSpawnLightBall : MonoBehaviour 
 {
-    public static int NumberOfLightBalls = 12;
+    private static int NumberOfLightBalls = 12;
     
     [SerializeField]
     private GameObject lightBallObject;
@@ -14,27 +15,22 @@ public class YamiSpawnLightBall : MonoBehaviour
 
     private float fireTimer = 0f;
 
-    private Vector2 projectileDirection;
+    private YamiPlayer yamiPlayer;
 
-    private void Start()
+    private void Awake()
     {
-        projectileDirection = Vector2.right;
+        yamiPlayer = GetComponent<YamiPlayer>();
+        if(yamiPlayer == null)
+        {
+            Debug.LogError("No Player");
+        }
     }
 
     private void Update()
     {
-        var h = Input.GetAxisRaw("Horizontal");
-        var v = Input.GetAxisRaw("Vertical");
-
-        if(h != 0)
+        if(yamiPlayer.YamiPlayerMode == YamiPlayer.Mode.NOPLAY)
         {
-            projectileDirection.x = h;
-            projectileDirection.y = 0f;
-        }
-        else if(v != 0)
-        {
-            projectileDirection.x = 0f;
-            projectileDirection.y = v;
+            return;
         }
 
         if(Input.GetKeyDown(KeyCode.Space))
@@ -57,5 +53,10 @@ public class YamiSpawnLightBall : MonoBehaviour
         {
             fireTimer = 0f;
         }
+    }
+
+    public static void IncrementLightBalls()
+    {
+        NumberOfLightBalls++;
     }
 }

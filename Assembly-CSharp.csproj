@@ -60,8 +60,8 @@
      <Compile Include="Assets\Scripts\LightsOutController.cs" />
      <Compile Include="Assets\Scripts\LightsOutEnemy.cs" />
      <Compile Include="Assets\Scripts\SimpleCharacterMovement.cs" />
-     <Compile Include="Assets\Scripts\SimpleRestart.cs" />
      <Compile Include="Assets\Scripts\StartGame.cs" />
+     <Compile Include="Assets\Scripts\YamiPlayer.cs" />
      <Compile Include="Assets\Scripts\YamiSpawnLightBall.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

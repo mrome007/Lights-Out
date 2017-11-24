@@ -36,7 +36,7 @@ public class EnemyWaveController : MonoBehaviour
     [SerializeField]
     private Text waveNumberText;
 
-    private int waveNumber = 1;
+    public static int WaveNumber = 1;
 
     private float timeToSpawnEnemy = 1.5f;
     private float timeBetweenWaves = 6.0f;
@@ -73,7 +73,7 @@ public class EnemyWaveController : MonoBehaviour
             {
                 baseNumberOfEnemies += incrRateOfEnemies;
             }
-            waveNumber++;
+            WaveNumber++;
             UpdateWaveText();
         }
     }
@@ -127,6 +127,6 @@ public class EnemyWaveController : MonoBehaviour
     private void UpdateWaveText()
     {
         waveTextContainer.SetActive(true);
-        waveNumberText.text = waveNumber.ToString();
+        waveNumberText.text = WaveNumber.ToString();
     }
 }

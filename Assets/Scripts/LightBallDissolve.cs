@@ -14,6 +14,6 @@ public class LightBallDissolve : MonoBehaviour
 
     private void OnDestroy()
     {
-        YamiSpawnLightBall.NumberOfLightBalls++;
+        YamiSpawnLightBall.IncrementLightBalls();
     }
 }
