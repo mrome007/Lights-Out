@@ -24,8 +24,8 @@ public class SimpleCharacterMovement : MonoBehaviour
 	
 	private void Update() 
     {
-        var h = Input.GetAxisRaw("Horizontal");
-        var v = Input.GetAxisRaw("Vertical");
+        var h = Input.GetAxis("Horizontal");
+        var v = Input.GetAxis("Vertical");
 
         movementVector.x = h;
         movementVector.y = v;
